@@ -1,10 +1,15 @@
 module.exports = {
   content: [
-    './**/*.{html,js}',
-    './node_modules/daisyui/dist/**/*.js'
+      "./*.{html,php,js}",
+      "./php/*.{html,php,js}", 
+      "./js/*.{html,php,js}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        oswald: ['Oswald'],
+      },
+    },
   },
   plugins: [
     require('daisyui'),

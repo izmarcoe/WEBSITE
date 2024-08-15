@@ -5,75 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="src/input.css">
 </head>
 <body>
     <header>
         <!--hero header-->
-        <section class="min-h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url(images/background.svg);">
-            <!--NAVBAR-->
-            <section class="navbar bg-transparent">
-                <div class="flex-1">
-                <a class="btn btn-ghost text-xl">Website</a>
+        <section style="background-color:#EBE9E1; color:#000;">
+            <!-- NAVBAR -->
+            <section class="font-oswald flex items-center justify-between w-full p-4">
+                <div class="flex">
+                    <p class="text-xl font-bold">LOGO</p>
                 </div>
-                <div class="flex-none">
-                    <div class="dropdown dropdown-end">
-                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                            <div class="indicator">
-                                <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                                <span class="badge badge-sm indicator-item">8</span>
-                            </div>
-                        </div>
-                        <div
-                        tabindex="0"
-                        class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
-                            <div class="card-body">
-                                <span class="text-lg font-bold">8 Items</span>
-                                <span class="text-info">Subtotal: $999</span>
-                                    <div class="card-actions">
-                                        <button class="btn btn-primary btn-block">View cart</button>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown dropdown-end">
-                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                            <div class="w-10 rounded-full">
-                                <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                            </div>
-                        </div>
-                        <ul
-                        tabindex="0"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li>
-                            <a class="justify-between">
-                            Profile
-                                <span class="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                        </ul>
-                    </div>
+
+                <!-- Centered Links -->
+                <div class="flex space-x-8 text-xl">
+                    <a href="#about-us" class="hover:text-gray-700">About Us</a>
+                    <a href="#reviews" class="hover:text-gray-700">Reviews</a>
+                    <a href="#shop" class="hover:text-gray-700">Shop</a>
+                </div>
+
+                <!-- Right-side Icons -->
+                <div class="flex space-x-4 items-center">
+                    <button class="p-2 hover:text-gray-700" style="background-color:#E43D12">
+                        <!-- Shopping Cart Icon (example using Font Awesome) -->
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="p-2 hover:text-gray-700" style="background-color:#E43D12">
+                        <!-- Search Icon (example using Font Awesome) -->
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="p-2 hover:text-gray-700" style="background-color:#E43D12">
+                        <!-- Login Icon (example using Font Awesome) -->
+                        <i class="fas fa-user"></i>
+                    </button>
                 </div>
             </section>
 
+            <!-- Add Font Awesome for icons -->
+            <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
             <!--HERO HEADER CONTENTS-->
-            <section>
-                <div>  
-                    <p class="text-center text-[90px] absolute top-1/2 left-1/2 transform -translate-x-[85%] -translate-y-1/2">WELCOME TO THE WEBSITE</p>
+            <section class="min-h-screen w-full bg-cover bg-center bg-no-repeat" style="background-color: #FFA2B6; color:#E43D12; border-top-right-radius: 75px; border-top-left-radius: 75px;">
+                <div class="flex justify-center text-7xl">  
+                    <p class="font-oswald absolute pt-10">Chic Elegance Boutique</p>
+                </div>
+                <div>
+                    <p class="absolute top-[600px] left-2/4 text-4xl">Don't miss out.<br>try our products now.</p>
+                    <button class="border-[#F63562] border-2 text-xl font-bold rounded-xl w-[200px] h-[65px] absolute top-3/4 left-2/4 hover:bg-[#F63562] hover:text-black hover:font-bold hover:text-xl">Sign up</button>
+                </div>
+                <div>
+                    <img class="w-[900px] h-[900px] absolute top-[125px] left-[100px]" src="images\clothes.svg">
                 </div>
             </section>
 
