@@ -27,5 +27,7 @@ if ($_POST["password"] !== $_POST["password_confirmation"]){
 
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
+require __DIR__ . "/database.php";
+
 print_r($_POST);
 var_dump($password_hash);
