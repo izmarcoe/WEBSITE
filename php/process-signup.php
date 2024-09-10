@@ -27,7 +27,33 @@ if ($_POST["password"] !== $_POST["password_confirmation"]){
 
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-require __DIR__ . "/database.php";
+$mysqli = require __DIR__ . "/database.php";
 
-print_r($_POST);
-var_dump($password_hash);
+$sql = "INSERT INTO user (name, email, password_hash)
+        VALUES (?, ?, ?)";
+
+$stmt = $mysqli->stmt_init();
+
+if ( !$stmt->prepare($sql)){   //NOT WORKING FOR ERROR HANDLING
+    die("SQL error: " . $mysqli->error);
+}
+
+$stmt->bind_param("sss",
+                    $_POST["name"],
+                    $_POST["email"],
+                    $password_hash);
+
+try {
+    // Try executing the statement
+    if ($stmt->execute()) {
+        echo "Signup successful";
+    }
+} catch (mysqli_sql_exception $e) {
+    // Catch and handle the duplicate entry error
+    if ($e->getCode() == 1062) { //1062 - error message is for duplicate email
+        echo "Error: This email is already registered.";
+    } else {
+        // For other errors, display a generic error message
+        echo "Error: " . $e->getMessage();
+    }
+}
