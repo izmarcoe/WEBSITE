@@ -34,7 +34,7 @@ $sql = "INSERT INTO user (name, email, password_hash)
 
 $stmt = $mysqli->stmt_init();
 
-if ( !$stmt->prepare($sql)){   //NOT WORKING FOR ERROR HANDLING
+if ( !$stmt->prepare($sql)){   //NOT WORKING FOR ERROR HANDLING IF WRONG INSERT
     die("SQL error: " . $mysqli->error);
 }
 
@@ -46,7 +46,8 @@ $stmt->bind_param("sss",
 try {
     // Try executing the statement
     if ($stmt->execute()) {
-        echo "Signup successful";
+        header("Location: signup-success.php");
+        exit;
     }
 } catch (mysqli_sql_exception $e) {
     // Catch and handle the duplicate entry error
