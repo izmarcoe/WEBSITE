@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="dist/output.css">
     <link rel="stylesheet" href="src/input.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="../js/validation.js" defer></script>
 </head>
 <body>
     <h1>SIGN UP FORM</h1>
-
-    <form action="process-signup.php" method="post" novalidate>
+    
+    <form action="process-signup.php" method="post" id="signup" novalidate>
+        
         <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name">
@@ -32,7 +35,7 @@
             <input type="password" id="password_confirmation" name="password_confirmation">
         </div>
 
-        <button>sign up</button>
+        <button type="submit">sign up</button>
     </form>
 </body>
 </html>

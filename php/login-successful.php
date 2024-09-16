@@ -2,6 +2,16 @@
 
 session_start();
 
+if (isset($_SESSION["user_id"])) {
+    $mysqli = require __DIR__ . "/database.php";
+
+    $sql = "SELECT * FROM user
+            WHERE id = {$_SESSION["user_id"]}";
+
+    $result = $mysqli->query($sql);
+
+    $user = $result->fetch_assoc();
+}
 
 ?>
 
@@ -11,22 +21,75 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="dist/output.css">
-    <link rel="stylesheet" href="src/input.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="../src/input.css">
 </head>
 <body>
-    <h1>Home</h1>
+    <header>
+        <!--hero header-->
+        <section style="background-color:#EBE9E1; color:#000;">
+            <!-- NAVBAR -->
+            <section class="font-oswald flex items-center justify-between w-full py-4">
+                <div class="flex pl-[53px]">
+                    <p class="text-xl font-bold">LOGO</p>
+                </div>
 
-    <?php if (isset($_SESSION["user_id"])): ?>
+                <!-- Centered Links -->
+                <div class="font-oswald space-x-[155px] text-[24px]">
+                    <a href="#about-us" class="hover:text-gray-700">ABOUT US</a>
+                    <a href="#reviews" class="hover:text-gray-700">OUR PRODUCTS</a>
+                    <a href="#shop" class="hover:text-gray-700">REVIEWS</a>
+                </div>
 
-        <p>You are logged in.</p>
+                <!-- Right-side Icons -->
+                <a href="php/login.php" class="flex items-center pr-[53px]">
+                    <button class="w-[150px] h-[50px] text-[23px] bg-[#FFA2B6] rounded-[25px]" >Login</button>
+                </a>
+            </section>
 
-    <?php else: ?>
+            <!--HERO HEADER CONTENTS-->
+            <section class="min-h-screen w-full" style="background-color: #FFA2B6; color:#E43D12; border-top-right-radius: 75px; border-top-left-radius: 75px;">
+                <div class="absolute left-[15%] top-[200px]">  
+                    <p class="font-oswald font-black text-[100px]  w-[603px] h-[265px]">Chic Elegance Boutique</p>
+                    <div class="font-oswald font-normal pt-14 w-[433px] h-[259px]">
+                        <p class="text-[48px]">Don't miss out.</p>
+                        <p class="text-[48px]">Get our products now.</p>
+                        <div class="flex items-center">
+                            <p class="text-[36px]">Don't have an account?</p>
+                            <a href="php/signup.php" class="text-[32px] pl-2 underline">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img class="w-[1123px] h-[670px] absolute top-[150px] right-[100px]" src="..\images\clothes.svg">
+                </div>
+                <div>
+                    
+                </div>
+            </section>
 
-        <p><a href="login.php">Log in</a> or <a href="signup.php">sign up</a></p>
+        </section>
+    </header>
+    <!--MAIN CONTENT-->
+    <main>
+        <section class="h-[1080px]" style="background-color: #EBE9E1;">
+            <section class="h-[1020px]" style="background-color: #FCC88C;  border-bottom-right-radius: 75px; border-bottom-left-radius: 75px;">
+                <div class="text-white text-7xl">
+                <h1>Home</h1>
+                    <?php if (isset($user)): ?>
 
-    <?php endif; ?>
+                        <p>Hello <?= htmlspecialchars ($user["name"]) ?></p>
 
+                        <p><a href= "logout.php">Log out</a></p>
+                    <?php else: ?> 
+
+                        <p><a href="login.php">Log in</a> or <a href="signup.php">sign up</a></p>
+
+                    <?php endif; ?>
+                </div>
+            </section>
+        </section>
+    </main>
+    
 </body>
 </html>
