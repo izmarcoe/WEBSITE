@@ -58,8 +58,18 @@
     <main>
         <section class="h-[1080px]" style="background-color: #EBE9E1;">
             <section class="h-[1020px]" style="background-color: #FCC88C;  border-bottom-right-radius: 75px; border-bottom-left-radius: 75px;">
+                <div class=" absolute -bottom-[600px] w-full h-[300px] flex items-center" style="background-color: #FEAE6F"> <!--page header-->
+                    <div class="flex items-center w-[470px] h-[190px] pl-[125px] border-2 border-transparent">
+                        <h2 class="font-oswald font-black text-[90px]" style="color:#028391">About Us</h2>
+                    </div>
+                    <div class="pl-[50px] w-[212px] h-[262px] flex items-center">
+                        <img src="images\about_us.svg">
+                    </div>
+                </div>
                 <div>
-                    
+                    <div class="absolute -bottom-[700px]"> <!--Our mission part-->
+                        <h4 class="text-black">Our mission?</h4>
+                    </div>
                 </div>
             </section>
         </section>
